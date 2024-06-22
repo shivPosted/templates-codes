@@ -140,47 +140,105 @@ const restaurant = {
 
 //switching vairables with destructuring
 
-let [main, secondary] = restaurant.categories;
-console.log(main, secondary);
+// let [main, secondary] = restaurant.categories;
+// console.log(main, secondary);
 
-[secondary, main] = [main, secondary];
-console.log(main, secondary);
+// [secondary, main] = [main, secondary];
+// console.log(main, secondary);
 
-const [starterDish, mainDish] = restaurant.order(
-  restaurant.starterMenu.length - 1,
-  1
-);
-console.log(starterDish, mainDish);
+// const [starterDish, mainDish] = restaurant.order(
+//   restaurant.starterMenu.length - 1,
+//   1
+// );
+// console.log(starterDish, mainDish);
 
-const arr = [4, 5, 6, [7, 8]];
-const [i, , , [j, k]] = arr;
-console.log(i, j, k);
+// const arr = [4, 5, 6, [7, 8]];
+// const [i, , , [j, k]] = arr;
+// console.log(i, j, k);
 
-const ratings = [
-  ['rating', 4.19],
-  ['ratingsCount', 144584],
-];
+// const ratings = [
+//   ['rating', 4.19],
+//   ['ratingsCount', 144584],
+// ];
 
-const [[, rating], [, ratingsCount]] = ratings;
-console.log(rating, ratingsCount);
+// const [[, rating], [, ratingsCount]] = ratings;
+// console.log(rating, ratingsCount);
 
-const ratingStars = [63405, 1808];
-const [fiveStarRating, oneStarRating, threeStarRating = 0] = ratingStars;
-console.log(fiveStarRating, oneStarRating, threeStarRating);
+// const ratingStars = [63405, 1808];
+// const [fiveStarRating, oneStarRating, threeStarRating = 0] = ratingStars;
+// console.log(fiveStarRating, oneStarRating, threeStarRating);
 
-const {
-  fri: { open: o, close: c },
-} = restaurant.openingHours;
+// const {
+//   fri: { open: o, close: c },
+// } = restaurant.openingHours;
 
-console.log(o, c);
+// console.log(o, c);
 
-const arr01 = [7, 8, 9];
-const newArr = [1, 2, 3, 4, 5, 6, ...arr01];
-console.log(newArr);
+// const arr01 = [7, 8, 9];
+// const newArr = [1, 2, 3, 4, 5, 6, ...arr01];
+// console.log(newArr);
 
-const speelWord = word => {
-  console.log(...word);
+// const speelWord = word => {
+//   console.log(...word);
+// };
+
+// speelWord('Javascript');
+// // console.log(...restaurant);
+
+// const shiv = {
+//   firstName: 'Shiv',
+//   lastName: 'Pratap',
+//   age: 23,
+//   pin: 302012,
+//   address: 'Shivam Vihar-11, plot no:107',
+//   district: 'Jaipur',
+//   state: 'Raj',
+//   Country: 'India',
+// };
+
+// const { firstName: myName, age: myAge, ...rest } = shiv;
+// console.log(myName, myAge, rest);
+
+// const findCountryRegion = async function (region) {
+//   try {
+//     const response = await fetch(
+//       `https://restcountries.com/v3.1/region/${region}`
+//     );
+//     if (!response.ok)
+//       throw new Error('Something is wrong with region name or connectoin down');
+//     const result = await response.json();
+//     console.log(result);
+//     return 'Data Successfully loaded';
+//   } catch (err) {
+//     console.error(err.message);
+//     throw err;
+//   }
+// };
+
+// (async function () {
+//   const result = await findCountryRegion('asia');
+//   console.log(result);
+// })();
+
+let binarySearch = function (arr, key) {
+  let low = 0;
+  let high = arr.length - 1;
+
+  while (low <= high) {
+    const mid = parseInt((low + high) / 2);
+    if (arr[mid] === key) return mid;
+    else if (key > arr[mid]) low = mid + 1;
+    else high = mid - 1;
+  }
+  return -1;
 };
 
-speelWord('Javascript');
-console.log(...restaurant);
+let arr = [3, 4, 16, 17, 21, 32, 43, 56, 67, 72, 89, 90];
+const key = 90;
+const keyIndex = binarySearch(arr, key);
+const result =
+  keyIndex === -1
+    ? 'element not present'
+    : `Element is at the index ${keyIndex}`;
+
+console.log(result);
