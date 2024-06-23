@@ -242,3 +242,33 @@ const result =
     : `Element is at the index ${keyIndex}`;
 
 console.log(result);
+
+const queue = {
+  front: 0,
+  rear: 0,
+  count: 0,
+  arr: new Array(5),
+  top: function () {
+    if (this.count === 0 || !this.front) console.log('The queue is empty');
+    else console.log(this.arr[this.front % this.arr.length]);
+  },
+  push: function (elem) {
+    if (this.count >= this.arr.length) {
+      console.log('Queue is full');
+      return;
+    }
+    this.arr[this.rear++ % this.arr.length] = elem;
+    this.count++;
+    console.log(this.count);
+  },
+  pop: function () {
+    if (this.count == 0) {
+      console.log('Queue is already empty');
+      return;
+    }
+    this.count--;
+    console.log(this.count);
+    arr[this.front % this.arr.length] = -1;
+    return this.arr[this.front++ % this.arr.length];
+  },
+};
